@@ -44,9 +44,6 @@ This is how it should look like:
  - Thanks to [OscarAkaElvis] for his help in the development of the plugin
  - Thanks to [xpz3] for the research to adapt the original attack to work with all chipsets
 
-## TODO List
- - Do the final review of the language strings by native speaker translators
-
 [airgeddon]: https://github.com/v1s1t0r1sh3r3/airgeddon
 [OscarAkaElvis]: https://github.com/OscarAkaElvis
 [xpz3]: https://github.com/xpz3
