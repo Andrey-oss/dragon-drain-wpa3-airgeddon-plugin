@@ -9,7 +9,7 @@ plugin_author="Janek"
 
 plugin_enabled=1
 
-plugin_minimum_ag_affected_version="11.60"
+plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("Kali" "Kali arm" "Parrot" "Parrot arm" "Debian" "Ubuntu" "Mint" "Backbox" "Raspberry Pi OS" "Raspbian" "Cyborg" "Puppy")
 
@@ -456,6 +456,9 @@ function wpa3_dragon_drain_prehook_hookable_wpa3_attacks_menu() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 Dragon Drain attack" ]; then
 		plugin_y="wpa3_dragon_drain_attack_option"
 		plugin_y_under_construction=""
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 Dragon Drain attack" ]; then
+		plugin_z="wpa3_dragon_drain_attack_option"
+		plugin_z_under_construction=""
 	fi
 }
 
@@ -491,6 +494,20 @@ function wpa3_dragon_drain_prehook_hookable_for_languages() {
 		arr["TURKISH",757]="7.  WPA3 Dragon Drain saldırı"
 		arr["ARABIC",757]="7.  WPA3 Dragon Drain هجوم"
 		arr["CHINESE",757]="7.  WPA3 Dragon Drain 攻击"
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",812]="8.  WPA3 Dragon Drain attack"
+		arr["SPANISH",812]="8.  Ataque Dragon Drain WPA3"
+		arr["FRENCH",812]="8.  Attaque de Dragon Drain WPA3"
+		arr["CATALAN",812]="8.  Atac WPA3 Dragon Drain"
+		arr["PORTUGUESE",812]="8.  Ataque Dragon Drain WPA3"
+		arr["RUSSIAN",812]="8.  Атака WPA3 Dragon Drain"
+		arr["GREEK",812]="8.  Επίθεση WPA3 Dragon Drain"
+		arr["ITALIAN",812]="8.  Attacco WPA3 Dragon Drain"
+		arr["POLISH",812]="8.  Atak WPA3 Dragon Drain"
+		arr["GERMAN",812]="8.  WPA3 Dragon Drain Angriff"
+		arr["TURKISH",812]="8.  WPA3 Dragon Drain saldırı"
+		arr["ARABIC",812]="8.  WPA3 Dragon Drain هجوم"
+		arr["CHINESE",812]="8.  WPA3 Dragon Drain 攻击"
 	fi
 
 	arr["ENGLISH","wpa3_dragon_drain_attack_1"]="WPA3 Dragon Drain attack runs forever aiming to overload the router (DoS)"
