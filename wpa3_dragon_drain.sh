@@ -7,7 +7,7 @@ plugin_name="WPA3 Dragon Drain"
 plugin_description="A plugin to perform a WPA3 Dragon Drain DoS attack"
 plugin_author="Janek"
 
-plugin_enabled=1
+plugin_enabled=0
 
 plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
@@ -584,7 +584,7 @@ function wpa3_dragon_drain_prehook_hookable_for_languages() {
 	arr["ENGLISH","wpa3_dragon_drain_attack_6"]="Do you want to see the output of the error occurred while updating/installing? \${blue_color}Maybe this way you might find the root cause of the problem \${normal_color}\${visual_choice}"
 	arr["SPANISH","wpa3_dragon_drain_attack_6"]="¿Quieres ver la salida del error que dio al actualizar/instalar? \${blue_color}De esta manera puede que averigües cuál fue el origen del problema \${normal_color}\${visual_choice}"
 	arr["FRENCH","wpa3_dragon_drain_attack_6"]="Voulez-vous voir le résultat de l'erreur survenue lors de l'actualisation/installation? \${blue_color}Peut-être de cette façon vous pourriez trouver la cause principale du problème \${normal_color}\${visual_choice}"
-	arr["CATALAN","wpa3_dragon_drain_attack_6"]="Voleu veure la sortida de l'error que heu donat en actualitzar/instal·lar? \${blue_color}Potser així trobareu la causa principal del problema \${normal_color}\${visual_choice}"
+	arr["CATALAN","wpa3_dragon_drain_attack_6"]="¿Voleu veure la sortida de l'error que heu donat en actualitzar/instal·lar? \${blue_color}Potser així trobareu la causa principal del problema \${normal_color}\${visual_choice}"
 	arr["PORTUGUESE","wpa3_dragon_drain_attack_6"]="Deseja ver o erro ocorrido durante a atualização/instalação? \${blue_color}Talvez assim você possa encontrar a causa raiz do problema \${normal_color}\${visual_choice}"
 	arr["RUSSIAN","wpa3_dragon_drain_attack_6"]="Хотите увидеть вывод ошибки, возникшей во время обновления/установки? \${blue_color}Возможно, таким образом Вам удастся установить причину проблемы \${normal_color}\${visual_choice}"
 	arr["GREEK","wpa3_dragon_drain_attack_6"]="Θέλετε να δείτε το output του σφάλματος που προέκυψε κατά την ενημέρωση/εγκατάσταση; \${blue_color}Ίσως με αυτόν τον τρόπο να βρείτε τη βασική αιτία του προβλήματος \${normal_color}\${visual_choice}"
