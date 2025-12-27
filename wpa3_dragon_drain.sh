@@ -7,7 +7,7 @@ plugin_name="WPA3 Dragon Drain"
 plugin_description="A plugin to perform a WPA3 Dragon Drain DoS attack"
 plugin_author="Janek"
 
-plugin_enabled=0
+plugin_enabled=1
 
 plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
