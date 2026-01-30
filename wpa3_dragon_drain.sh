@@ -9,7 +9,7 @@ plugin_author="Janek"
 
 plugin_enabled=1
 
-plugin_minimum_ag_affected_version="11.60"
+plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("Kali" "Kali arm" "Parrot" "Parrot arm" "Debian" "Ubuntu" "Mint" "Backbox" "Raspberry Pi OS" "Raspbian" "Cyborg" "Puppy")
 
@@ -28,12 +28,9 @@ function exec_wpa3_dragon_drain_attack() {
 
 	debug_print
 
-	rm -rf "${tmpdir}agwpa3"* > /dev/null 2>&1
-	mkdir "${tmpdir}agwpa3" > /dev/null 2>&1
-
+	iw dev "${interface}" set channel "${channel}" > /dev/null 2>&1
 	recalculate_windows_sizes
-
-	manage_output "+j -bg \"#000000\" -fg \"#FFC0CB\" -geometry ${g1_topright_window} -T \"wpa3 dragon drain attack\"" "${python3} ${scriptfolder}${plugins_dir}wpa3_dragon_drain_attack.py ${bssid} ${channel} ${interface} ${dragon_drain_install_path} | tee ${tmpdir}agwpa3/${wpa3log_file} ${colorize}" "wpa3 dragon drain attack" "active"
+	manage_output "+j -bg \"#000000\" -fg \"#FFC0CB\" -geometry ${g1_topright_window} -T \"wpa3 dragon drain attack\"" "${python3} ${scriptfolder}${plugins_dir}wpa3_dragon_drain_attack.py ${bssid} ${channel} ${interface} ${dragon_drain_install_path} ${colorize}" "wpa3 dragon drain attack" "active"
 	wait_for_process "${python3} ${scriptfolder}${plugins_dir}wpa3_dragon_drain_attack.py ${bssid} ${channel} ${interface} ${dragon_drain_install_path}" "wpa3 dragon drain attack"
 }
 
@@ -367,8 +364,6 @@ function wpa3_dragon_drain_attack_option() {
 	fi
 
 	cd "${scriptfolder}"
-	wpa3log_file="ag.wpa3.log"
-
 	if is_atheros_chipset || is_realtek_chipset || is_ralink_chipset; then
 		echo
 		language_strings "${language}" "wpa3_dragon_drain_attack_17" "blue"
@@ -456,6 +451,9 @@ function wpa3_dragon_drain_prehook_hookable_wpa3_attacks_menu() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 Dragon Drain attack" ]; then
 		plugin_y="wpa3_dragon_drain_attack_option"
 		plugin_y_under_construction=""
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 Dragon Drain attack" ]; then
+		plugin_z="wpa3_dragon_drain_attack_option"
+		plugin_z_under_construction=""
 	fi
 }
 
@@ -491,6 +489,20 @@ function wpa3_dragon_drain_prehook_hookable_for_languages() {
 		arr["TURKISH",757]="7.  WPA3 Dragon Drain saldırı"
 		arr["ARABIC",757]="7.  WPA3 Dragon Drain هجوم"
 		arr["CHINESE",757]="7.  WPA3 Dragon Drain 攻击"
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",812]="8.  WPA3 Dragon Drain attack"
+		arr["SPANISH",812]="8.  Ataque Dragon Drain WPA3"
+		arr["FRENCH",812]="8.  Attaque de Dragon Drain WPA3"
+		arr["CATALAN",812]="8.  Atac WPA3 Dragon Drain"
+		arr["PORTUGUESE",812]="8.  Ataque Dragon Drain WPA3"
+		arr["RUSSIAN",812]="8.  Атака WPA3 Dragon Drain"
+		arr["GREEK",812]="8.  Επίθεση WPA3 Dragon Drain"
+		arr["ITALIAN",812]="8.  Attacco WPA3 Dragon Drain"
+		arr["POLISH",812]="8.  Atak WPA3 Dragon Drain"
+		arr["GERMAN",812]="8.  WPA3 Dragon Drain Angriff"
+		arr["TURKISH",812]="8.  WPA3 Dragon Drain saldırı"
+		arr["ARABIC",812]="8.  WPA3 Dragon Drain هجوم"
+		arr["CHINESE",812]="8.  WPA3 Dragon Drain 攻击"
 	fi
 
 	arr["ENGLISH","wpa3_dragon_drain_attack_1"]="WPA3 Dragon Drain attack runs forever aiming to overload the router (DoS)"
@@ -567,7 +579,7 @@ function wpa3_dragon_drain_prehook_hookable_for_languages() {
 	arr["ENGLISH","wpa3_dragon_drain_attack_6"]="Do you want to see the output of the error occurred while updating/installing? \${blue_color}Maybe this way you might find the root cause of the problem \${normal_color}\${visual_choice}"
 	arr["SPANISH","wpa3_dragon_drain_attack_6"]="¿Quieres ver la salida del error que dio al actualizar/instalar? \${blue_color}De esta manera puede que averigües cuál fue el origen del problema \${normal_color}\${visual_choice}"
 	arr["FRENCH","wpa3_dragon_drain_attack_6"]="Voulez-vous voir le résultat de l'erreur survenue lors de l'actualisation/installation? \${blue_color}Peut-être de cette façon vous pourriez trouver la cause principale du problème \${normal_color}\${visual_choice}"
-	arr["CATALAN","wpa3_dragon_drain_attack_6"]="Voleu veure la sortida de l'error que heu donat en actualitzar/instal·lar? \${blue_color}Potser així trobareu la causa principal del problema \${normal_color}\${visual_choice}"
+	arr["CATALAN","wpa3_dragon_drain_attack_6"]="¿Voleu veure la sortida de l'error que heu donat en actualitzar/instal·lar? \${blue_color}Potser així trobareu la causa principal del problema \${normal_color}\${visual_choice}"
 	arr["PORTUGUESE","wpa3_dragon_drain_attack_6"]="Deseja ver o erro ocorrido durante a atualização/instalação? \${blue_color}Talvez assim você possa encontrar a causa raiz do problema \${normal_color}\${visual_choice}"
 	arr["RUSSIAN","wpa3_dragon_drain_attack_6"]="Хотите увидеть вывод ошибки, возникшей во время обновления/установки? \${blue_color}Возможно, таким образом Вам удастся установить причину проблемы \${normal_color}\${visual_choice}"
 	arr["GREEK","wpa3_dragon_drain_attack_6"]="Θέλετε να δείτε το output του σφάλματος που προέκυψε κατά την ενημέρωση/εγκατάσταση; \${blue_color}Ίσως με αυτόν τον τρόπο να βρείτε τη βασική αιτία του προβλήματος \${normal_color}\${visual_choice}"
